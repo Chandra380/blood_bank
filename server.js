@@ -25,5 +25,5 @@ app.use('/api/v1/analytics',require('./routes/analyticsRoute'))
 app.use('/api/v1/admin',require('./routes/adminRoute'))
 
 app.listen(PORT,()=>{
-    console.log(`Server running in port number ${process.env.PORT}`);
+    console.log(`Server running in port number ${PORT}`);
 })
