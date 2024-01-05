@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AnshMakker7/Blood-bank.git"
+    "url": "git+https://github.com/Chandra380/blood_bank.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AnshMakker7/Blood-bank/issues"
+    "url": "https://github.com/Chandra380/blood_bank/issues"
   },
-  "homepage": "https://github.com/AnshMakker7/Blood-bank#readme",
+  "homepage": "https://github.com/Chandra380/blood_bank#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
