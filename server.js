@@ -4,6 +4,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const path = require('path');
 
 dotenv.config();
 connectDB();
@@ -21,6 +22,12 @@ app.use('/api/v1/test',require('./routes/testRoute'))
 app.use('/api/v1/auth',require('./routes/authRoute'))
 app.use('/api/v1/inventory',require('./routes/inventoryRoute'))
 app.use('/api/v1/analytics',require('./routes/analyticsRoute'))
+
+app.use(express.static(path.join(__dirname, './client/build')))
+
+app.get('*', function(req, re){
+    res.sendFile(path.join(__dirname, './client/build/index.html'))
+});
 
 
 app.listen(PORT,()=>{
