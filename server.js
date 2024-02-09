@@ -25,7 +25,7 @@ app.use('/api/v1/analytics',require('./routes/analyticsRoute'))
 
 app.use(express.static(path.join(__dirname, './client/build')))
 
-app.get('*', function(req, re){
+app.get('*', function(req, res){
     res.sendFile(path.join(__dirname, './client/build/index.html'))
 });
 
