@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 
+
 dotenv.config();
 connectDB();
 const app = express();
@@ -21,6 +22,8 @@ app.use('/api/v1/test',require('./routes/testRoute'))
 app.use('/api/v1/auth',require('./routes/authRoute'))
 app.use('/api/v1/inventory',require('./routes/inventoryRoute'))
 app.use('/api/v1/analytics',require('./routes/analyticsRoute'))
+
+
 
 
 app.listen(PORT,()=>{
