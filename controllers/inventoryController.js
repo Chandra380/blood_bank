@@ -69,12 +69,12 @@ const createInventoryController = async(req,res) =>{
             } else {
             req.body.donor = user?._id;
             }
-        const inventory = new inventoryModel(req.body);
-        await inventory.save();
-        return res.status(201).send({
-            success:true,
-            message:"Inventory saved successfully",
-        })
+            const inventory = new inventoryModel(req.body);
+            await inventory.save();
+            return res.status(201).send({
+                success:true,
+                message:"Inventory saved successfully",
+            })
     } catch (error) {
         console.log(error);
         return res.status(500).send({
@@ -179,9 +179,7 @@ const getHospitalController = async(req,res) => {
     try {
         const organisation = req.body.userId;
         // find donors
-        const hospitalId = await inventoryModel.distinct("hospital",{
-            organisation,
-        });
+        const hospitalId = await inventoryModel.distinct("hospital",{organisation});
         // console.log(donorId);
         const hospitals = await userModel.find({_id:{$in:hospitalId}});
         return res.status(200).send({
@@ -200,50 +198,48 @@ const getHospitalController = async(req,res) => {
 };
 
 const getOrganisationController = async (req, res) => {
-            try {
-              const donor = req.body.userId;
-              const orgId = await inventoryModel.distinct("organisation", { donor });
-              //find org
-              const organisations = await userModel.find({
-                _id: { $in: orgId },
-              });
-              return res.status(200).send({
-                success: true,
-                message: "Org Data Fetched Successfully",
-                organisations,
-              });
-            } catch (error) {
-              console.log(error);
-              return res.status(500).send({
-                success: false,
-                message: "Error In ORG API",
-                error,
-              });
-            }
-          };
+  try {
+    const donor = req.body.userId;
+    const inventory = await inventoryModel.find({ donor }).populate('organisation');
+    
+    return res.status(200).send({
+      success: true,
+      message: "Org Data Fetched Successfully",
+      inventory,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      success: false,
+      message: "Error In ORG API",
+      error,
+    });
+  }
+};
 
 const getOrganisationForHospitalController = async (req, res) => {
-            try {
-              const hospital = req.body.userId;
-              const orgId = await inventoryModel.distinct("organisation", { hospital });
-              //find org
-              const organisations = await userModel.find({
-                _id: { $in: orgId },
-              });
-              return res.status(200).send({
-                success: true,
-                message: "Hospital Org Data Fetched Successfully",
-                organisations,
-              });
-            } catch (error) {
-              console.log(error);
-              return res.status(500).send({
-                success: false,
-                message: "Error In Hospital ORG API",
-                error,
-              });
-            }
-          };
+  try {
+    const hospital = req.body.userId;
+    const inventory = await inventoryModel.find({hospital}).populate('organisation');
+    //find org
+    // const inventory = await inventoryModel.find().
+    // const organisations = await userModel.find({
+    //   _id: { $in: orgId },
+    // });
+    return res.status(200).send({
+      success: true,
+      message: "Hospital Org Data Fetched Successfully",
+      inventory,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      success: false,
+      message: "Error In Hospital ORG API",
+      error,
+    });
+  }
+};
 
 module.exports = {createInventoryController,getInventoryController,getDonorController,getHospitalController,getOrganisationController,getOrganisationForHospitalController,getInventoryHospitalController,getRecentInventoryController};
 

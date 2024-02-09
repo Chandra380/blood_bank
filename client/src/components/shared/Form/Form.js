@@ -41,20 +41,6 @@ const Form = ({formType,submitBtn,formTitle}) => {
               className="form-check-input"
               type="radio"
               name="role"
-              id="adminRadio"
-              value={'admin'}
-              onChange={(e) => setRole(e.target.value)}
-            //   defaultChecked
-            />
-            <label className="form-check-label" htmlFor="adminRadio">
-              Admin
-            </label>
-          </div>
-          <div className="form-check ms-2">
-          <input
-              className="form-check-input"
-              type="radio"
-              name="role"
               id="organisationRadio"
               value={'organisation'}
               onChange={(e) => setRole(e.target.value)}

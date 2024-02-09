@@ -1,7 +1,6 @@
 const express = require("express");
 
 const cors = require("cors");
-const colors = require("colors");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
@@ -22,7 +21,7 @@ app.use('/api/v1/test',require('./routes/testRoute'))
 app.use('/api/v1/auth',require('./routes/authRoute'))
 app.use('/api/v1/inventory',require('./routes/inventoryRoute'))
 app.use('/api/v1/analytics',require('./routes/analyticsRoute'))
-app.use('/api/v1/admin',require('./routes/adminRoute'))
+
 
 app.listen(PORT,()=>{
     console.log(`Server running in port number ${PORT}`);

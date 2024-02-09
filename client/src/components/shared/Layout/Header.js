@@ -28,7 +28,7 @@ const Header = () => {
                     </li>
                     {
                         location.pathname === '/' ? (
-                            <li className="nav-item mx-3">
+                            user?.role==="organisation" && <li className="nav-item mx-3">
                                 <Link to='/analytics' className='nav-link'>
                                     Analytics
                                 </Link>

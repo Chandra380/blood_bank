@@ -12,12 +12,10 @@ import Organisation from "./pages/Dashboard/Organisation";
 import Consumer from "./pages/Dashboard/Consumer";
 import Donation from "./pages/Dashboard/Donation";
 import Analytics from "./pages/Dashboard/Analytics";
-import DonorList from "./pages/Admin/DonorList";
-import HospitalList from "./pages/Admin/HospitalList";
-import OrgList from "./pages/Admin/OrgList";
-import AdminHome from "./pages/Admin/AdminHome";
+
 
 function App() {
+  // const {user} = useSelector((state)=>state.auth);
   return (
     <div>
       <ToastContainer/>
@@ -33,31 +31,11 @@ function App() {
         <Analytics/>
         </ProtectedRoute>
         }/>
-        <Route path="/admin" element={
-          <ProtectedRoute>
-        <AdminHome/>
-        </ProtectedRoute>
-        }/>
         <Route path="/donor" element={
           <ProtectedRoute>
         <Donor/>
         </ProtectedRoute>
-        }/>
-        <Route path="/donor-list" element={
-          <ProtectedRoute>
-        <DonorList/>
-        </ProtectedRoute>
-        }/>
-        <Route path="/hospital-list" element={
-          <ProtectedRoute>
-        <HospitalList/>
-        </ProtectedRoute>
-        }/>
-        <Route path="/org-list" element={
-          <ProtectedRoute>
-        <OrgList/>
-        </ProtectedRoute>
-        }/>
+        }/>yyyy
         <Route path="/hospital" element={
           <ProtectedRoute>
         <Hospital/>

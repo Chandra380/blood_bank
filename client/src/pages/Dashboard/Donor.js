@@ -30,6 +30,7 @@ const Donor = () => {
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
             <th scope="col">Date</th>
+            {/* <th scope="col">Amount</th> */}
           </tr>
         </thead>
         <tbody>
@@ -39,6 +40,7 @@ const Donor = () => {
               <td>{record.email}</td>
               <td>{record.phone}</td>
               <td>{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>
+              {/* <td>{record.quantity}</td> */}
             </tr>
           ))}
         </tbody>

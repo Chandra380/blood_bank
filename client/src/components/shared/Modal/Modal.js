@@ -56,7 +56,7 @@ const Modal = () => {
             </div>
             <div className="modal-body">
             <div className="d-flex mb-3">
-                Blood Type: &nbsp;
+                Inventory Type: &nbsp;
                 <div className="form-check ms-3">
                   <input
                     type="radio"
@@ -83,6 +83,7 @@ const Modal = () => {
                   </label>
                 </div>
               </div>
+              <div>Blood Type</div>
               <select
                 className="form-select"
                 aria-label="Default select example"
@@ -102,7 +103,7 @@ const Modal = () => {
               </select>
               {(inventoryType === 'in')&&(
               <InputType
-                labelText={`Donar Email`}
+                labelText={`Donor Email`}
                 labelFor={"donarEmail"}
                 inputType={"email"}
                 value={email}
@@ -110,7 +111,7 @@ const Modal = () => {
               />)}
               {(inventoryType === 'out')&&(
               <InputType
-                labelText={`Organisation Email`}
+                labelText={`Hospital Email`}
                 labelFor={"donarEmail"}
                 inputType={"email"}
                 value={email}

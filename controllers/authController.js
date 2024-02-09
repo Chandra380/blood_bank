@@ -24,7 +24,7 @@ const registerController = async(req,res)=>{
             user
         })
 
-    } catch (error) {
+    }catch (error) {
         console.log(error);
         res.status(500).send({
             success:false,
